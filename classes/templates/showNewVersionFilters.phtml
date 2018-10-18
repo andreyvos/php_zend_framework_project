@@ -1,0 +1,15 @@
+<?php
+	$test = "
+		<div class='filtersVersionSettings version_".$this->posting_id."_".$this->new_version."'></div>
+		<script>
+			jQuery.get('/en/account/posting/filters-get-version-data', {id: ".$this->posting_id.",version_id:".$this->new_version.",hide_additional_settings:'true'}, function(data, textStatus, xhr) {
+			data = data.substring(1, data.length - 1);
+			data_obj = JSON.parse(data);
+			jQuery('.version_".$this->posting_id."_".$this->new_version."').prepend(data_obj.text);
+			jQuery('.filtersVersionSettings').removeClass('version_".$this->posting_id."_".$this->new_version."');
+			});
+		</script>
+	";
+
+	echo $test;
+?>
